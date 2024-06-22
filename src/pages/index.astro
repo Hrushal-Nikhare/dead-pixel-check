@@ -1,0 +1,97 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+// import "../scripts/color.js";
+---
+
+<Layout title="Dead pixel check">
+	<main>
+		<h1><span class="text-gradient">Dead pixel check</span></h1>
+		<!-- <h3>exactly as the name suggests</h3> -->
+		<p class="instructions">
+			To get Started press any key! <br />
+			some predefined colors:
+			<ul>
+				<li> <code>b</code> for black </li>
+				<li> <code>w</code> for white </li>
+				<li> <code>r</code> for red </li>
+				<li> <code>g</code> for green </li>
+				<li> <code>l</code> for blue </li>
+				<li> <code>o</code> for orange </li>
+				<li> <code>y</code> for yellow </li>
+				<li> <code>p</code> for purple </li>
+			</ul>
+
+			<!-- You have changed colors <span id="Counter">0</span> times -->
+		</p>
+		<script>
+			document.addEventListener("keydown", (e) => {
+				window.location.replace('/pixel-check/');
+			});
+		</script>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1rem;
+		width: 800px;
+		max-width: calc(100% - 2rem);
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+	}
+	h1 {
+		font-size: 4rem;
+		font-weight: 700;
+		line-height: 1;
+		text-align: center;
+	}
+	h3 {
+		text-align: center;
+		font-size: 2rem;
+		font-weight: 400;
+		/* color: wheat; */
+	}
+	h1,h3{
+		mix-blend-mode: hard-light;
+	}
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+	.instructions {
+		margin-bottom: 2rem;
+		border: 1px solid rgba(var(--accent-light), 25%);
+		background: linear-gradient(
+			rgba(var(--accent-dark), 66%),
+			rgba(var(--accent-dark), 33%)
+		);
+		padding: 1.5rem;
+		border-radius: 8px;
+	}
+	.instructions code {
+		font-size: 0.8em;
+		font-weight: bold;
+		background: rgba(var(--accent-light), 12%);
+		color: rgb(var(--accent-light));
+		border-radius: 4px;
+		padding: 0.3em 0.4em;
+	}
+	.instructions strong {
+		color: rgb(var(--accent-light));
+	}
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 2rem;
+		padding: 0;
+	}
+	body{
+		height: 100vh;
+	}
+</style>
